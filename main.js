@@ -26,9 +26,15 @@ let template = []
 if (process.platform === 'darwin') {
   // OS X
   const name = app.getName();
+  const version = app.getVersion();
+
   template.unshift({
     label: name,
     submenu: [
+      {
+            label: `${name} v${version}`,
+            role: 'version',
+        },
       {
         label: 'About ' + name,
         role: 'about'
@@ -138,5 +144,5 @@ app.on('ready', function()  {
 // autoUpdater.on('download-progress', (progressObj) => {
 // })
 // autoUpdater.on('update-downloaded', (info) => {
-//   autoUpdater.quitAndInstall();  
+//   autoUpdater.quitAndInstall();
 // })
